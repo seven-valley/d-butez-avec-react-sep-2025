@@ -34,7 +34,25 @@ export default function App() {
 
 # apres
 ```tsx
+import { useForm } from "react-hook-form"
 
+export default function App() {
+  const {register, handleSubmit} = useForm();
+  const valider =(data:any)=>{
+    console.log(data);
+  }
+  
+  return (
+    <>
+      <form onSubmit={handleSubmit(valider)} >
+        <input {...register("appareil")} />
+        <input {...register("statut")} />
+        <button type="submit">GO</button>
+      </form>
+      
+    </>
+  )
+}
 ```
 
 
