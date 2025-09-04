@@ -59,8 +59,3 @@ export default function App() {
 
 
 
-
-# Version 3 avec JS
-```jsx
-```
-
