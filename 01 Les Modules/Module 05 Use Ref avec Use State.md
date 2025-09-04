@@ -40,7 +40,7 @@ export default function App() {
 Afin de bien comprendre la différence entre <code>useState</code> et <code>useRef</code>    
 Voici un exmple avec 2 compteurs    
 Nous pouvons constater que la modification de <code>useRef</code> **ne** déclencle **pas** un **"Rendering"** de la vue HTML.
-
+<img src="../img/05/versus.png" width="300">
 ```jsx
 import { useRef } from "react";
 
