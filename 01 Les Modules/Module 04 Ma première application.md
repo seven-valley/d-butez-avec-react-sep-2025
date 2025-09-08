@@ -166,7 +166,7 @@ export default function App() {
 }
 ```
 
-### Ajouter  des class dynamique dans className
+### Modifier le CSS avec des "class" dynamiques dans className
 
 ```ts
 import { useState } from "react";
