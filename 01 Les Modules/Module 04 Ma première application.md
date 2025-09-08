@@ -166,6 +166,70 @@ export default function App() {
 }
 ```
 
+### Ajouter  des class dynamique dans className
+
+```ts
+import { useState } from "react";
+
+
+export default function App() {
+  // zone des variables et fonction
+  // let info = 'test'; // cela ne marche pas
+  const [info,setInfo]= useState({
+    prenom:'',
+    nom:'',
+    age:'',
+    myClass:''
+  });
+  const afficher =(formData)=>{
+    const info2 ={};
+    const prenom = formData.get('prenom');
+    const nom = formData.get('nom');
+    const age = formData.get('age');
+    info2.prenom = prenom;
+    info2.nom = nom;
+    info2.age = age;
+    if (age >= 18){
+      info2.myClass='success'
+    }else{
+      info2.myClass='danger'
+    }
+    setInfo(info2)
+    // info= `${prenom} ${nom}`;
+  }
+  // return jsx
+  return (
+    <>
+      <div className="container">
+        <div className="col-4">
+          <h1>Formulaire</h1>
+          <form action={afficher}>
+          <input className="form-control my-2" type="text" name="prenom" placeholder="Prénom"/>
+          <input className="form-control my-2" type="text" name="nom" placeholder="Nom" />
+          <input className="form-control my-2" type="text" name="age" placeholder="Age" />
+          <button className="btn btn-primary" type="submit"> GO </button>
+          </form>
+          <h2>{info.prenom} {info.nom}</h2>
+          { info.prenom.length > 0 &&
+            <div className={`alert alert-${info.myClass}`}>
+              {
+                info.age > 18 ? <p>ENTREZ</p>: <p>Interdit</p>
+              }
+            </div>
+          }
+          {/* <div className="alert alert-success">
+            ENTREZ
+          </div>
+          <div className="alert alert-danger">
+            Interdit !
+          </div> */}
+        </div>
+      </div>
+    </>
+  )
+}
+```
+
 ## Ajouter Bootstrap et ses classes
 ```tsx
 import "./App.css";
