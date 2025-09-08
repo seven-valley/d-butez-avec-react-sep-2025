@@ -62,7 +62,7 @@ Ajouter des valeurs par défaults aux champs input
 ```tsx
 return (
     <> 
-    <form method="post" action={affiche}>
+    <form action={affiche}>
       <input name="prenom" defaultValue="Brad" />
       <input name="nom" defaultValue="PITT" />
       <button type="submit">Valider</button>
