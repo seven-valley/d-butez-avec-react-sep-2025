@@ -22,7 +22,7 @@ export default class Appareil{
             |-- ApppareilComponents.jsx
 ```
 
-## AppareilComponent.js
+## AppareilComponent.jsx
 ```jsx
 export default function AppareilComponent({appareil,indice,switchOne}) {
     return (
@@ -111,6 +111,92 @@ export default function App() {
       </div>
     </>
 
+  )
+}
+```
+
+## App.jsx avec react hook form
+```jsx
+import { useEffect, useRef, useState } from "react"
+import { useForm } from "react-hook-form"
+import Appareil from './models/Appareil'
+import AppareilComponent from "./components/AppareilComponent";
+
+export default function App() {
+
+  const [appareils, setAppareils] = useState([]);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
+  const ajouter = (data) => {
+    const name = data.appareil;
+    const appareil = new Appareil(name);
+    setAppareils([...appareils, appareil])
+  }
+  useEffect(() => {
+    const appareils2 = [
+      { name: 'Tv Oled', status: true }
+    ]
+    setAppareils(appareils2)
+  }, [])
+  const switchAll=(status)=>{
+    const appareils2 =[...appareils];
+    appareils2.map(a=> a.status=status);
+     setAppareils(appareils2)
+  }
+    const switchOne=(indice)=>{
+    const appareils2 =[...appareils];
+    appareils2[indice].status = !appareils2[indice].status;
+     setAppareils(appareils2);
+  }
+  return (
+    <>
+      <div className="container">
+        <div className="col-4">
+          <h2>Les Appareils</h2>
+          <form onSubmit={handleSubmit(ajouter)}>
+
+            <input
+              placeholder="Appareil"
+              type="text"
+              className={`form-control  my-2 ${errors.appareil && 'is-invalid'}`}
+              id="appareil"
+              {...register('appareil', {
+                required: 'Veillez remplir ce champ',
+                minLength: {
+                  value: 3, message: '3 caractères minimun',
+                  pattern: { value: /^[A-Za-z]+$/i, message: 'svp pas de chiffres' }
+                }
+              })} />
+            <div className="invalid-feedback">
+              {errors.appareil && errors.appareil.message}
+            </div>
+            <button className="btn btn-success">GO</button>
+          </form>
+          <ul className="list-group my-3">
+              {
+              appareils.map((a,i)=>
+              <AppareilComponent 
+              appareil={a}
+              indice={i}
+              switchOne={switchOne}
+              key={i}
+              />)
+            }
+          </ul>
+          <button 
+            onClick={()=>switchAll(true)}
+            className="btn btn-success me-3">ALL ON</button>
+
+            <button 
+            onClick={()=>switchAll(false)}
+            className="ml-2 btn btn-danger">ALL OFF</button>
+        </div>
+      </div>
+    </>
   )
 }
 ```
