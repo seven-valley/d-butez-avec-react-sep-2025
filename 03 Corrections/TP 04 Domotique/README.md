@@ -168,8 +168,9 @@ export default function App() {
                 required: 'Veillez remplir ce champ',
                 minLength: {
                   value: 3, message: '3 caractères minimun',
-                  pattern: { value: /^[A-Za-z]+$/i, message: 'svp pas de chiffres' }
+                  
                 }
+                pattern: { value:/^[A-Za-z]+$/i, message: 'svp pas de chiffres' }
               })} />
             <div className="invalid-feedback">
               {errors.appareil && errors.appareil.message}
