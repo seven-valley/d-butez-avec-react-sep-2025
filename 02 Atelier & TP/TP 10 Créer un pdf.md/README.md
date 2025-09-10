@@ -21,3 +21,4 @@ const afficher=()=>{
     //pdf.save(`document.pdf`)
 }
 ```
+<img src="./image.png" width="300">
