@@ -153,3 +153,28 @@ let total3 =0
 items.map((item) => total3 += item.price); 
 console.log(total3);
 ```
+
+## Exercice 5 
+Classer des objets en groupes selon une category :
+```js
+const items = [
+  { name: "Pomme", type: "fruit" },
+  { name: "Carotte", type: "légume" },
+  { name: "Banane", type: "fruit" },
+  { name: "Brocoli", type: "légume" }
+];
+
+const grouped = items.reduce((acc, item) => {
+  if (!acc[item.type]) {
+    acc[item.type] = [];
+  }
+  acc[item.type].push(item.name);
+  return acc;
+}, {});
+
+console.log(grouped);
+// {
+//   fruit: ["Pomme", "Banane"],
+//   légume: ["Carotte", "Brocoli"]
+// }
+```
