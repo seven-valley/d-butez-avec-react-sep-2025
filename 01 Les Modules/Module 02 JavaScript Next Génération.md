@@ -44,7 +44,7 @@ le const c'est aussi un **tableau** ou un **objet**
  ajouter('pomme','poire','cersie');
  ```
 ## les ${} Template literals ou en francais Littéraux de gabarits
-A dieu la concaténation ... Bonjour **${}**
+Adieu la concaténation ... Bonjour **${}**
 ```js
 console.log(p1.prenom + ' '+p1.nom);
 
