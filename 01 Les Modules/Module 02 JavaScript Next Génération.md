@@ -154,7 +154,8 @@ console.log(activeUsers)
 ]
 */
 ```
-**Créer 2 tableaux par **
+
+**Créer 2 tableaux par catégorie**
 
 ```js
 const grouped = users.reduce((acc, item) => {
