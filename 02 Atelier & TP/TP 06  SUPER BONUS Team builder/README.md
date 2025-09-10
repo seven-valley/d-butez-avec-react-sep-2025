@@ -27,3 +27,31 @@ Dans Real Time data Base
 
 
 
+```js
+const teams=
+[
+{
+    name:'team A',
+    users : [
+      {id:1, name: "Alice", active: true },
+      {id:2, name: "Bob", active: false },
+      { id:3,name: "Charlie", active: true }
+]},
+   { 
+    name:'team B',
+    users : [
+      { id:1,name: "Alice", active: true },
+      { id:2,name: "Bob", active: false },
+ 
+]},
+];
+
+
+const userId = 4;
+
+const userTeams = teams.filter(team =>
+  team.users.some(user => user.id === userId)
+);
+
+console.log(userTeams);
+```
