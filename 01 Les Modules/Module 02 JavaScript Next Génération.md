@@ -73,7 +73,7 @@ console.log(`info ${p1.age >18 ? 'ok':'no good'}`);
 - :two: <code>.filter</code>
 - :three: <code>.reduce</code>
 - :four: <code>.some</code>
-
+- :five: <code>.findIndex()</code>
 
 ## :one: <code>.find()</code>
 
@@ -199,7 +199,7 @@ console.log(grouped)
 | `.reduce()` | Une seule valeur (accumulateur) | Parcourt tout le tableau| Transformer **tout le tableau** en une valeur unique (somme, objet, tableau filtré, etc.) |
 
 
-## :five <code>.findIndex()</code>
+## :five: <code>.findIndex()</code>
 
 **But** : retourne **l’index du premier élément** qui satisfait une condition.
 ```js
