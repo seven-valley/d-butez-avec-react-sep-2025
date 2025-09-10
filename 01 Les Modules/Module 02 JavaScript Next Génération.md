@@ -197,3 +197,12 @@ console.log(grouped)
 | `.reduce()` | Une seule valeur (accumulateur) | Transformer **tout le tableau** en une valeur unique (somme, objet, tableau filtré, etc.) |
 | Méthode     | Retourne                        | Usage typique                                                                             |
 | `.reduce()` | Une seule valeur (accumulateur) | Parcourt tout le tableau| Transformer **tout le tableau** en une valeur unique (somme, objet, tableau filtré, etc.) |
+
+
+## :five <code>.findIndex()</code>
+
+**But** : retourne **l’index du premier élément** qui satisfait une condition.
+```js
+const index = users.findIndex(user => user.id === 2)
+console.log(index) // 1
+```
