@@ -78,3 +78,40 @@ console.log(grouped);
 // }
 ```
 
+## Exercice 6
+ Trouve les équipes de Bob
+
+```js 
+const teams=
+[
+{
+    name:'team A',
+users : [
+  {id:1, name: "Alice", active: true },
+  {id:2, name: "Bob", active: false },
+  { id:3,name: "Charlie", active: true }
+]},
+   { name:'team B',
+users : [
+  { id:1,name: "Alice", active: true },
+  { id:2,name: "Bob", active: false },
+ 
+]},
+]
+const userId = 2;
+// equipes =["team A", "team B"]
+const equipes = teamsWithUser.reduce((arr, equipe) => {
+    if (equipe.users.some(user => user.id === userId))
+   arr.push(equipe.name)
+  return arr
+}, [])
+console.log(equipes);
+
+// autres solutions
+const teamNamesWithUser = teams
+  .filter(team => team.users.some(user => user.id === userId))
+  .map(team => team.name)
+
+console.log(teamNamesWithUser)
+
+```
