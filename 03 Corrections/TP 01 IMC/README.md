@@ -41,7 +41,7 @@ export default function App() {
   }
   return (
     <>
-    <form method="post" onSubmit={calcul}>
+    <form method="post" action={calcul}>
       <input name="poids" placeholder='ICI votre poids' defaultValue="80" />
       <input name="taille" placeholder='ICI votre poids' defaultValue="1.8" />
      <button type="submit">GO</button>
