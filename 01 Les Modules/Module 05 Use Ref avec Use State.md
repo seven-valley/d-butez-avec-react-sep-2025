@@ -69,7 +69,7 @@ export default function App() {
 ```
 
 # Le 2 ways binding en 4 étapes 
-## :one: Epape 1
+## :one: Etape 1
 Utilisation de <code>onChange</code> sur input
 ```jsx
 import { useRef } from "react";
@@ -83,7 +83,7 @@ export default function App() {
   );
 }
 ```
-## :two: Epape 2
+## :two: Etape 2
 Mise en place de **2 champs** input  
 ```jsx
 import { useRef } from "react";
@@ -104,7 +104,7 @@ export default function App() {
 }
 ```
 
-## :three: Epape 3
+## :three: Etape 3
 ```jsx
 import { useState,useRef } from "react";
 
@@ -134,7 +134,7 @@ export default function App() {
 
 ```
 
-##  :four: Epape 4
+##  :four: Etape 4
 ### Version épurée et simplifiée :rocket:
 je link les champs input directement avec <code>ref={prenom}</code>  
 Ne pas oublie le <code>.value</code> dans  <code>prenom.current.value</code>  
