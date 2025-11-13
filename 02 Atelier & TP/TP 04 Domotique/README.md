@@ -3,7 +3,7 @@
 
 - Créer un tableau d'objets appareils
 - Créer le component  Appareil.jsx
-- Envoyer les élèments du tableau au component AppareilComponent
+- Envoyer les élèments du tableau au component Appareil
 - Changer la couleur du background
 - Allumer et Eteindre tous les appareils
   
