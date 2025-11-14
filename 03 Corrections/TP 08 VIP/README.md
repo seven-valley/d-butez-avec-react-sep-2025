@@ -183,3 +183,128 @@ export default App
 
 ```
 
+# Correction avec Object key
+
+TrPersonne.jsx
+```jsx
+export default function TrPersonne({ id, personne, enlever,modifier }) {
+    console.log(personne);
+    return (
+        <tr className={`${personne.status ? 'table-success' : 'table-danger'}`}>
+            <td>{personne.prenom}</td>
+            <td>{personne.nom}</td>
+            <td><button
+                onClick={() => enlever(id)}
+                className="btn btn-danger">
+                <i className="fa fa-trash"></i>
+            </button>
+            </td>
+            <td><button
+                onClick={() => modifier(id)}
+                className="btn btn-warning">
+                <i className="fa fa-check"></i>
+            </button>
+            </td>
+        </tr>
+    )
+}
+```
+
+App.jsx
+```jsx
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Personnes from "./components/TrPersonne";
+import TrPersonne from "./components/TrPersonne";
+
+export default function App() {
+  const db = 'https://vip-cocktail-ib-default-rtdb.europe-west1.firebasedatabase.app/';
+  const noeud = 'personnes';
+  const[personnes, setPersonnes] = useState({});
+  const load = async()=>{
+     const url2 = `${db}${noeud}.json`;
+    const response = await axios.get(url2);
+    if (response.data){
+    setPersonnes(response.data);
+    }
+  }
+  useEffect(() => {
+    load()
+  }, []);
+
+  
+  //-------------------------------
+
+  const ajouter = async (formData) => {
+    const url2 = `${db}${noeud}.json`;
+    const prenom = formData.get('prenom');
+    const nom = formData.get('nom');
+    const personne = { prenom: prenom, nom: nom, status: true }
+    const response = await axios.post(url2, personne);
+    console.log(response.data.name); // response.data.name = '-sq45665'
+    const id = response.data.name;
+    const personnes2 = {...personnes}
+    personnes2[id] = personne;
+    setPersonnes(personnes2);
+  }
+  const enlever= async (id)=>{
+      const url2 = `${db}${noeud}/${id}.json`
+    const response = await axios.delete(url2);
+    const personnes2 = {...personnes}
+    delete personnes2[id];
+    setPersonnes(personnes2);
+  }
+  const modifier = async(id)=>{
+      const url2 = `${db}${noeud}/${id}.json`
+    const obj ={ status : !personnes[id].status}
+    const response = await axios.patch(url2, obj);
+    const personnes2 = {...personnes}
+    personnes2[id].status = !personnes2[id].status
+    setPersonnes(personnes2);
+  }
+
+  return (
+    <div className="container">
+      <div className="col-4">
+        <form action={ajouter}>
+
+          <input type="text" name="prenom" className="form-control my-3" placeholder="Prénom" />
+
+          <input type="text" name="nom" className="form-control my-3" placeholder="Nom" />
+          <button className="btn btn-secondary">
+            <i className="fa fa-plus"></i>
+          </button>
+        </form>
+        <table className="table table-striped">
+          <thead>
+            <tr>
+              <th>Prénom</th>
+              <th>Nom</th>
+              <th colSpan="3">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              Object.keys(personnes).map( (id) => 
+              <TrPersonne 
+              key ={id}
+              personne={personnes[id]}
+              enlever={enlever}
+              modifier={modifier}
+              id={id}
+              />)
+    
+   
+            }
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+
+
+  )
+}
+
+```
