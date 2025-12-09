@@ -5,7 +5,7 @@ npm install zustand
 
 ## Version simple
 Le store `itemStore.js`
-```
+```js
 //itemStore.js
 import { create } from 'zustand'
 
