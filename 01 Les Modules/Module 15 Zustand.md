@@ -1,7 +1,78 @@
 # NPM
+```
 npm install zustand
+````
 
-# Javascript
+## Version simple
+Le store `itemStore.js`
+```
+//itemStore.js
+import { create } from 'zustand'
+
+export const useListeItem = create((set, get) => ({
+    items:[],
+    ajouter: (item)=>{
+        set({items:[...get().items,item]})
+    }
+
+}))
+
+```
+`App.jsx`
+```js
+import { useForm } from "react-hook-form";
+import { useListeItem } from './itemStore'
+
+export default function App() {
+  const { items,ajouter } = useListeItem()
+
+
+
+  const afficher = (formData) => {
+    const item = formData.get('item');
+    ajouter(item);
+    console.log(items);
+  }
+  return (
+    <>
+      <div className="container">
+        <div className="col-3">
+          <form action={afficher}>
+            <input 
+            className={`form-control my-3`} 
+            name="item"
+            placeholder="item" />
+            
+            
+          
+            <table className="table">
+              <thead>
+                
+                <tr>
+                  <th>Items</th>
+                </tr>
+                
+              </thead>
+              <tbody>
+                { items.map ( item=>
+                <tr>
+                  <td>{item}</td>
+                </tr>)
+                }
+              </tbody>
+            </table>
+            <button className="btn btn-primary" type="submit">
+            Valider
+          </button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+}
+```
+
+### Javascript
 ```js
 // cartStore.js
 import { create } from 'zustand'
