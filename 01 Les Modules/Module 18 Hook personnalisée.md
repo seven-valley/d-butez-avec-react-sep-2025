@@ -1,6 +1,7 @@
 #  Custom Hook ultra simple : `useToggle`
 
 Ce hook permet juste de basculer entre true et false.
+https://fr.react.dev/reference/react/hooks
 
 ```js
 // useToggle.js
