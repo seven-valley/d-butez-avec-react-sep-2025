@@ -1,5 +1,5 @@
 
-cartContext.js
+cartContext.jsx
 ```js
 import { createContext, useState } from "react";
 
@@ -30,7 +30,7 @@ export function CartProvider({ children }) {
 ```
 
 
-Cart.js
+Cart.jsx
 ```js
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
@@ -50,7 +50,7 @@ export default function Cart() {
 }
 ```
 
-App.js
+App.jsx
 ```js
 import { CartProvider } from "./CartContext";
 import Products from "./Products";

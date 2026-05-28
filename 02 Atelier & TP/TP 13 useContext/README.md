@@ -10,4 +10,8 @@ Fonctionnalités :
 
 ajouter un produit
 afficher le nombre d’articles
-afficher le total
+afficher le total 
+
+- CartContext.jsx
+- Cart.jsx
+- App.jsx
