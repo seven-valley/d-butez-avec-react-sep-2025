@@ -14,4 +14,5 @@ afficher le total
 
 - CartContext.jsx
 - Cart.jsx
+- Product.jsx
 - App.jsx
