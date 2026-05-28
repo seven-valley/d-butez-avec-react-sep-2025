@@ -13,8 +13,7 @@ afficher <b>le nombre d’articles</b>
 afficher le <b>total</b> 
 
 - CartContext.jsx
-- Cart.jsx
-- Product.jsx
+- Formulaire.jsx (contient le formulaire)
+- Cart.jsx (contient la liste)
 - App.jsx
 
-<img src="./image.png" width="300">
