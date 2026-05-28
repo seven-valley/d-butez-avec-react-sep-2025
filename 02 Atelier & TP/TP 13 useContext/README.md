@@ -9,10 +9,12 @@ Créer un panier partagé entre plusieurs composants.
 Fonctionnalités :
 
 ajouter un produit
-afficher le nombre d’articles
-afficher le total 
+afficher <b>le nombre d’articles</b>
+afficher le <b>total</b> 
 
 - CartContext.jsx
 - Cart.jsx
 - Product.jsx
 - App.jsx
+
+<img src="./image.png" width="300">
