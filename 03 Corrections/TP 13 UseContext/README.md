@@ -1,5 +1,5 @@
 
-cartContext.jsx
+CartContext.jsx
 ```js
 import { createContext, useState } from "react";
 
@@ -49,6 +49,41 @@ export default function Cart() {
   );
 }
 ```
+
+Product.jsx
+```jsx
+import { useCart } from "../context/CartContext";
+
+const products = [
+  { id: 1, name: "Laptop", price: 1200 },
+  { id: 2, name: "Phone", price: 700 },
+  { id: 3, name: "Headphones", price: 150 },
+];
+
+function ProductList() {
+  const { addToCart } = useCart();
+
+  return (
+    <div>
+      <h2>Produits</h2>
+
+      {products.map((product) => (
+        <div key={product.id}>
+          <h3>{product.name}</h3>
+          <p>{product.price} €</p>
+
+          <button onClick={() => addToCart(product)}>
+            Ajouter au panier
+          </button>
+
+          <hr />
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+export default ProductList;
 
 App.jsx
 ```js
